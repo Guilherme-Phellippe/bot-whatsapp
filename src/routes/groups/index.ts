@@ -5,6 +5,10 @@ import { configDotenv } from 'dotenv'
 configDotenv();
 const app = Router();
 
+app.get('/', (req: any, res: any) => {
+    res.send("/foi")
+})
+
 app.post('/send-recipe', async (req: any, res: any) => {
     const { url, name, description, link } = req.body;
     const id_group = process.env.ID_GROUPS || ""
@@ -12,7 +16,7 @@ app.post('/send-recipe', async (req: any, res: any) => {
     create({
         session: "tem-sabor-message",
         disableWelcome: true,
-    }).then((client: Whatsapp) =>{
+    }).then((client: Whatsapp) => {
         client.sendImage(
             id_group,
             url,
