@@ -32,7 +32,8 @@ app.post('/send-recipe', async (req: any, res: any) => {
             await client.sendText("553592267960@c.us", "Erro ao enviar receita ao grupo")
         });
     } catch (error) {
-
+        console.log(error);
+        res.status(500).json({ error : "Erro ao enviar a receita ao grupo!"})
     }
 })
 
