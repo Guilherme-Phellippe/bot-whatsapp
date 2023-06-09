@@ -9,7 +9,7 @@ const createClientWhatsapp = async (): Promise<Whatsapp> => {
     return create({
         session: "tem-sabor-message",
         disableWelcome: true,
-        headless: 'new'
+        browserArgs: ['--no-sandbox', '--disable-setuid-sandbox', '--headless'],
     });
 };
 
