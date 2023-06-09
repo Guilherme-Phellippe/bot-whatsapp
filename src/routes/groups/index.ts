@@ -25,7 +25,7 @@ app.post('/send-recipe', async (req: any, res: any) => {
             res.status(200).json(response)
         }).catch(async (error) => {
             console.log(error)
-            await client.sendText("553592267960@c.us", "Erro ao enviar receita ao grupo")
+            await client.sendText("553592267960@c.us", "Erro ao enviar receita ao grupo").catch(error => console.log(error))
         });
     })
 })
