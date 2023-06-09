@@ -12,4 +12,4 @@ server.use((0, cors_1.default)({
 }));
 server.use(express_1.default.json());
 server.use(router_1.default);
-server.listen(8082, () => console.log("SERVER IS RUNNING ON PORT 8082"));
+server.listen(8081, () => console.log("SERVER IS RUNNING ON PORT 8081"));
