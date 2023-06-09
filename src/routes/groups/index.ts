@@ -33,7 +33,7 @@ app.post('/send-recipe', async (req: any, res: any) => {
         });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error : "Erro ao enviar a receita ao grupo!"})
+        res.status(500).json(error)
     }
 })
 
