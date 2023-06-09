@@ -9,6 +9,7 @@ const createClientWhatsapp = async (): Promise<Whatsapp> => {
     return create({
         session: "tem-sabor-message",
         disableWelcome: true,
+        headless: 'new'
     });
 };
 
@@ -32,7 +33,6 @@ app.post('/send-recipe', async (req: any, res: any) => {
             await client.sendText("553592267960@c.us", "Erro ao enviar receita ao grupo")
         });
     } catch (error) {
-        console.log(error);
         res.status(500).json(error)
     }
 })
