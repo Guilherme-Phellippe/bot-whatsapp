@@ -5,6 +5,8 @@ import { configDotenv } from 'dotenv'
 configDotenv();
 const app = Router();
 
+var clientWhatsapp: Whatsapp | null = null;
+
 const createClientWhatsapp = async (): Promise<Whatsapp> => {
     return create({
         session: "tem-sabor-message",
@@ -13,13 +15,19 @@ const createClientWhatsapp = async (): Promise<Whatsapp> => {
     });
 };
 
+const getClientWhatsapp = async():Promise<Whatsapp> =>{
+    if(!clientWhatsapp) clientWhatsapp = await createClientWhatsapp();
+
+    return clientWhatsapp
+}
+
 
 app.post('/send-recipe', async (req: any, res: any) => {
     const { url, name, description, link } = req.body;
     const id_group = process.env.ID_GROUPS || ""
 
     try {
-        const client: Whatsapp = await createClientWhatsapp();
+        const client: Whatsapp = await getClientWhatsapp();
 
         await client.sendImage(
             id_group,
