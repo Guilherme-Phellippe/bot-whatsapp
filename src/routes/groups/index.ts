@@ -21,6 +21,10 @@ const getClientWhatsapp = async():Promise<Whatsapp> =>{
     return clientWhatsapp
 }
 
+app.get('/', (req, res)=>{
+    res.send("Test success")
+})
+
 
 app.post('/send-recipe', async (req: any, res: any) => {
     const { url, name, description, link } = req.body;
