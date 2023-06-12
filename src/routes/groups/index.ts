@@ -37,7 +37,7 @@ app.post('/send-recipe', async (req: any, res: any) => {
             id_group,
             url,
             name,
-            `*${name.toUpperCase()}*\n\n${description}\n\nAcesse o link abaixo👇👇\n\n${link}\n\n_caso o link não esteja disponível, salve esse número de contato, feche e abra o whatsapp novamente! informe-nos se resolveu o problema._`
+            `*${name.toUpperCase()}*\n\n${description}\n\nconfira a receita em nossa rede social 👉👉 ${link}\n\n_caso o link não esteja disponível, salve esse número de contato, feche e abra o whatsapp novamente! informe-nos se resolveu o problema._`
         ).then((response) => {
             res.status(200).json(response)
         }).catch(async (error) => {
