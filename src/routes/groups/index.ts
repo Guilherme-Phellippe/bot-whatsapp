@@ -7,13 +7,14 @@ const app = Router();
 var client: any;
 
 app.post('/send-recipe', async (req: any, res: any) => {
-    client = client || await config();
-
     const { url, name, description, link } = req.body;
-    const groups = await client.getAllChatsGroups()
-    const filteredGroup = groups.filter((group: any) => group.groupMetadata?.desc?.includes("<recipegroup>"))
 
     try {
+        client = client || await config();
+
+        const groups = await client.getAllChatsGroups()
+        const filteredGroup = groups.filter((group: any) => group.groupMetadata?.desc?.includes("<recipegroup>"))
+
         filteredGroup.forEach(async (group: any) => {
             await client.sendImage(
                 group.id._serialized,
