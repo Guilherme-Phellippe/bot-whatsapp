@@ -2,7 +2,6 @@ import express from "express";
 import route from "./router";
 import cors from "cors";
 
-
 const server = express();
 
 server.use(cors({
