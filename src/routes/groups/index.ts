@@ -29,7 +29,8 @@ app.post('/send-recipe', async (req: any, res: any) => {
             });
         })
     } catch (error) {
-        res.status(500).json(error)
+        console.log(error)
+        res.status(500)
     }
 
 
